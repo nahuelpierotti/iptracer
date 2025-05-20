@@ -15,8 +15,6 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
-//@Data
-//@AllArgsConstructor
 @Service
 public class RequestCoalescerService {
 
