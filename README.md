@@ -6,10 +6,6 @@ Api desarrollada en Java para obtener datos del pais de origen de una direccion 
 Para deployar el proyecto es necesario contar docker y en la raiz de la carpeta del proyecto ejecutar:
 
 ```bash
-  ./mvnw clean package -DskipTests
-
-  y una vez generado el .jar ejecutar:
-
   docker-compose up --build
 ```
 
