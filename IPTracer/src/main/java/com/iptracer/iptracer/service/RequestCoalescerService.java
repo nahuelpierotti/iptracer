@@ -61,8 +61,10 @@ public class RequestCoalescerService {
             System.out.println(e.getMessage());
             throw new RuntimeException("Error en deduplicación distribuida", e);
         } finally {
-            if (acquired) {
-                lock.unlock();
+            if (acquired ) {
+                if(lock.isHeldByCurrentThread()) {
+                    lock.unlock();
+                }
             }
         }
 
