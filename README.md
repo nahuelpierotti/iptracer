@@ -64,3 +64,9 @@ La respuesta sera un json con la siguiente informacion:
 }
 }
 ```
+El proyecto cuenta con un servicio de Request Coalescing por ip para prevenir multiples llamadas desde la misma ip y cachear distribuidamente el resultado. 
+
+Consideraciones pendientes de desarrollo:
+- Tiene puestas unas credenciales gratuitas para los servicios de Fixer.io y ipapi, cuando las mismas lleguen a los 100 request el .jar dejara de funcionar.
+- Resiliencia: generar un esquema de reintentos y prevencion de fallos en las llamadas a las apis.
+- Manejo de errores centralizado, implementar un handler y a su vez generar un buen manejo de logging.
