@@ -43,7 +43,7 @@ public class RequestCoalescerService {
 
         boolean acquired = false;
         try {
-            acquired = lock.tryLock(2, 1, TimeUnit.SECONDS); // espera 2s, lockea por 1s
+            acquired = lock.tryLock(10, 5, TimeUnit.SECONDS); // espera hasta 10s, lockea por 5s
             if (acquired) {
                 // doble verificación: otra instancia pudo haber guardado ya el resultado
                 String doubleCheck = cache.get();
@@ -52,7 +52,7 @@ public class RequestCoalescerService {
                 }
 
                 Map<String, Object> result = supplier.get();
-                cache.set(objectMapper.writeValueAsString(result), 1, TimeUnit.SECONDS); // TTL 1s
+                cache.set(objectMapper.writeValueAsString(result), 60, TimeUnit.SECONDS); // TTL 1s
                 return (HashMap<String, Object>) result;
             } else {
                 throw new RuntimeException("No se pudo adquirir lock para IP: " + ip);
