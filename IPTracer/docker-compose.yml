@@ -3,6 +3,8 @@ services:
     build: .
     container_name: java_app
     image: pee-iptracer:1.0.0
+    tty: true
+    stdin_open: true
     ports:
       - "8080:8080"
     depends_on:

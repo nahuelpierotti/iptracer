@@ -15,13 +15,18 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
-@Data
-@AllArgsConstructor
+//@Data
+//@AllArgsConstructor
 @Service
 public class RequestCoalescerService {
 
     private final RedissonClient redissonClient;
     private final ObjectMapper objectMapper;
+
+    public RequestCoalescerService(RedissonClient redissonClient, ObjectMapper objectMapper) {
+        this.redissonClient = redissonClient;
+        this.objectMapper = objectMapper;
+    }
 
     public HashMap<String,Object> coalesce(String ip, Supplier<Map<String,Object>> supplier){
         String resultKey = "ipinfo:result:" + ip;
