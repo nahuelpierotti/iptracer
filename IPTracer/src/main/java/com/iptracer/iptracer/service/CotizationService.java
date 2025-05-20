@@ -18,7 +18,7 @@ import java.util.*;
 @AllArgsConstructor
 public class CotizationService {
 
-    final String key="19e6d1177d95ff9b57fcff57f059062a";
+    final String key="831d7e03dafb76dd4003ff482a81f8a0";
 
     public String findByCurrencyCode(String currencyCode) throws IOException, InterruptedException {
         Map<String,String> cotizations=getAllCotizations();

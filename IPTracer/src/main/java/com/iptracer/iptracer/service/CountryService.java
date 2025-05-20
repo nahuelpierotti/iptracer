@@ -31,7 +31,7 @@ public class CountryService implements Serializable {
     private final StatService statService;
     private final MapperConfig mapper;
 
-    final String apiKey="7923a0c819e6f4d0eb4c7298bb02e7da";
+    final String apiKey="2f24ab6236023a0ca2c2c53ffa73dcc6";
 
 
     public CountryResponseDto getCountryCodeFromIP(String ip) throws Exception {
